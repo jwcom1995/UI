@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블</title>
+</head>
+<body>
+    <!--
+        <table><tr><th><td>
+            <table> : 기본적인 표를 생성해주는 태그
+            <tr> : 표의 행을 나타내는 태그
+            <th> : 표의 제목 셀을 나타내는 태그
+            <td> : 표의 일반 셀을 나타내는 태그
+
+    -->
+    <h2>기본 테이블 만들기</h2>
+    <table border="1">
+        <tr>
+            <th>컬럼1</th>
+            <th>컬럼2</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+    </table>
+
+    <br><br>
+
+    <h2>주요 태그 사용해서 테이블 만들기</h2>
+    <table border="1">
+        <caption>테이블 제목</caption>
+        <colgroup>
+            <col width="100px"/>
+            <col width="200px"/>
+            <col width="300px"/>
+        </colgroup>
+        <tfoot> <!--tfoot 태그는 어디에서 선언하더라도 테이블 맨 밑 순서는 무조건 head-body-foot 순서-->
+            <tr>
+                <td>f1</td>
+                <td>f2</td>
+                <td>f3</td>
+            </tr>
+        </tfoot>
+        <thead>
+            <tr>
+                <th>컬럼01</th>
+                <th>컬럼02</th>
+                <th>컬럼03</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+        </tbody>
+        
+    </table>
+    <br><br>
+
+    <h2>테이블 셀 병합하기</h2>
+    <table border="1">
+        <caption>병합 테이블</caption>
+        <thead style="background-color: pink;">
+            <tr>
+                <th>컬럼1</th>
+                <th>컬럼2</th>
+                <th>컬럼3</th>
+                <th>컬럼4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="3">1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td colspan="2">6(행합치기)</td>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">f1</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
