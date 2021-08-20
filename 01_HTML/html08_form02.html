@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 태그들</title>
+</head>
+<body>
+    <h1>Index</h1>
+    <a href="#t">01. text 관련 태그</a><br>
+    <a href="#n">02. 숫자 관련 태그</a><br>
+    <a href="#d">03. 날짜 관련 태그</a><br>
+    <a href="#r">04. 라디오 버튼과 체크박스</a><br>
+    <a href="#e">05. 그 밖에 태그</a><br>
+    <a href="#e">06. select 와 option 태그 </a><br>
+    <a href="#ta">07. textarea 태그</a><br>
+    
+    <hr>
+    <h1>폼 관련 태그</h1>
+    <p>form 태그는 html에서 사용자가 입력할 수 있는 양식을 제공하는 태그<br>
+    form 태그 내의 input 태그들을 통해 입력한 정보를 서버로 넘기는 역할.<br>
+    *action : 수신대상<br>
+    *method : 전송방식<br>
+        get - 쿼리스트링으로 전송
+        post - url에 노출 x
+    </p>
+    <hr>
+    <br><br>
+    <form>
+        <fieldset>
+            <legend>필드셋의 제목을 작성하는 부분</legend>
+            <label>입력1: </label><input tpye="text"><br> <!--label을 해줌으로써 나중에 요소 추가 가능 ex)id-->
+            <label>입력2: </label><input tpye="text">
+        </fieldset>
+        <fieldset>
+            <legend>필드셋의 제목을 작성하는 부분</legend>
+            <label>입력1: </label><input tpye="text"><br> 
+            <label>입력2: </label><input tpye="text">
+        </fieldset>
+    </form>
+    <br><hr>
+    <form>
+        <h2 id="t">text와 관련된 input 태그</h2>
+       <h3>01. type="text"</h3>
+       <p>한줄짜리 텍스트를 입력할 수 있는 텍스트 상자</p>
+       아이디 : <input tpye="text" name="userid" size="20" placeholder="아이디를 입력하세요"
+                maxlength="15" value="khacademy" autofocus>
+        <br>
+        <h3>02. type="password"</h3>
+        <p>비밀번호를 입력할 수 있는 텍스트 상자</p>
+        패스워드 : <input type="password" name="userpw">
+        <br>
+        <h3>03. tpye="search", type="url", type="email", type="tel"</h3>
+        <p> 겉모습은 텍스트 필드와 비슷, 각각의 정보에 맞게 분화된 기능을 제공</p>
+        검색 : <input type="search" name="searchtext" placeholder="검색할 내용을 입력"><br> <!-- 검색 취소할수 있는 x 생성-->
+        홈페이지 : <input type="url" name="urltext" value="http://"><br> <!-- url입력 알림-->
+        이메일 : <input type="email" name="emailtext"><br> <!-- '@' 포함 여부 알림-->
+        전화번호 : <input type="tel" name="teltext"><br> <!-- 모바일 접속시 키패드 변경-->
+        <br><br>
+        <input type="submit" value="전송">
+    </form>
+    <hr>
+    <form>
+        <h2 id="n">숫자와 관련된 태그들</h2>
+        <h3>01. type="number"</h3>
+        <p>입력창에 숫자를 입력하는 것이 기본, 브라우저에 따라 스핀박스가 표현</p>
+        수량 : <input type="number" name="amount" min="0" max="10" value="5" step="2">
+        <h3>02. type="range"</h3>
+        <p>슬라이드바를 통해 숫자를 지정</p>
+        점수 : <input type="range" min="0" max="100" value="50" stemp="10">
+    </form>
+    <hr>
+    <form>
+        <h2 id="d">날짜/시간 관련된 태그들</h2>
+        date : <input type="date"><br>
+        month: <input type="month"><br>
+        week: <input type="week"><br>
+        time : <input type="time"><br>
+        datetime-local : <input type="datetime-local"><br>
+    </form>
+    <hr>
+    <form>
+        <h2 id="r">라디오 버튼과 체크박스</h2>
+        성별 : <input type="radio" id="female" name="gender" value="F" checked><label for="female">여자</label>
+        &nbsp;<input type="radio" id="male" name="gender" value="M"><label for="male">남자</label>
+        <!-- checked 로 사용자가 선택전에 이미 선택
+            label for로 radio버튼의 id값을 입력하여 텍스트 클릭해도 체크 가능-->
+        <br>
+        취미 : <input type="checkbox" id="baseball" name="hobby" value="baseball" checked><label for="baseball">야구</label>&nbsp;
+        <input type="checkbox" id="football" name="hobby" value="football"><label for="football">축구</label>&nbsp;
+        <input type="checkbox" id="basketball" name="hobby" value="baseball"><label for="basketball">농구</label>&nbsp;
+        <input type="checkbox" id="swimming" name="hobby" value="swimming"><label for ="swimming">수영</label>&nbsp;
+        <input type="checkbox" id="photograph" name="hobby" value="photograph"><label for ="photograph">사진찍기</label>
+        <br><br>
+
+        <input type="submit" value="전송">
+        <br>
+    </form>
+    <hr>
+    <form>
+        <h2 id="e">그 밖에 태그들</h2>
+        색상 선택 : <input type="color" name="color"><br>
+        파일 선택 : <input type="file" name="upload"><br>
+        안보임 : <input type="hidden" name="hiddenVal" value="1">
+        <!--name 지정을 안하면 데이터가 안넘어감-->
+
+        <br><br>
+        <button type="submit">submit</button>
+        <!--<input type="submit" value="전송">-->
+        <br>
+    </form>
+
+    <hr>
+    
+    <form>
+        <h2 id="s">select태그와 option태그</h2>
+        <h3>기본</h3>
+        국적 : 
+        <select>
+            <option value="kor">한국</option>
+            <option value="usa">미국</option>
+            <option value="eng">영국</option>
+            <option value="etc">기타</option>
+        </select>
+        <br><br>
+        <h3>select 태그 속성</h3>        
+        <select size="2" multiple> <!-- 복수선택 가능-->
+            <option value="kor">한국</option>
+            <option value="usa">미국</option>
+            <option value="eng">영국</option>
+            <option value="etc">기타</option>
+        </select>
+    </form>
+
+    <hr>
+    <form>
+        <h2 id ="ta">textarea 태그 </h2> <!--여러줄의 입력을 받기 위함-->
+        <textarea clos="30" rows="20" name="area" style="resize:none"></textarea>
+    </form>
+</body>
+</html>
