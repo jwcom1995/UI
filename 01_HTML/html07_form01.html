@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 태그</title>
+</head>
+<body>  <!-- get : 쿼리스트링으로 전송 <==> post : url에 노출 x  -->
+    <form action="html07_form01_res.html" method="get"><!-- action : 어디로 보낼지 , method : 어떻게 보낼지 -->
+        <fieldset><!-- html요소를 묶음-->
+            <legend>회원가입</legend> <!--fieldset의 제목-->
+            <p>아이디: <input type="text" name="id"> </p>
+            <p>비밀번호: <input type="text" name="pw"></p>
+            <p>이메일 수신 여부
+                <input type="radio" name="radio" value="y"> Yes
+                <input type="radio" name="radio" value="n"> No
+            </p>
+            <p>관심분야<BR>
+                <input type="checkbox" name="cb1" value="java"> JAVA <br>
+                <input type="checkbox" name="cb2" value="oracle"> Oracle<br>
+                <input type="checkbox" name="cb3" value="html"> HTML5
+            </p>
+            <P>
+                <input type="submit" value="전송">
+                <input type="reset" value="취소">
+                <input type="button" value="그냥버튼">
+            </P>
+        </fieldset>
+    </form>
+</body>
+</html>
+
+<!-- 쿼리 스트링 : url 에 붙어서 넘어가는 데이터 
+                  '?' 으로 시작  
+
+                -->
