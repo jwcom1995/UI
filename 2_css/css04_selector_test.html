@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selector</title>
+<style type="text/css">
+    h1{
+        background-color: pink;
+    }
+    #a{
+        color:red;
+    }
+    .b{
+        color:blue;
+    }
+    *{
+        padding:2px;
+    }
+    p>strong{
+        color:orange;
+    }
+    #c+p{
+        color:green;
+    }
+    p[title]{
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+    <h1><b>셀렉터</b> 작성연습하기</h1>
+    <div>
+        <p>1. h1태그에 배경색 pink 적용하기</p>
+        <p id="a"> 2. id="a"인 태그에 <b>color:red</b> 적용하기</p>
+        <p class="b">3. class="b"인 태그에 <b>color:blue</b> 적용하기</p>
+    </div>
+    <div>
+        <p>4. 전체를 선택하여 <b>padding:2px</b> 적용하기</p>
+        <p>5. p태그의 <strong>자식요소</strong> 중 strong tag에
+                <b>color:orange</b> 적용하기</p>
+        <p id="c">6. 'id="c"인 태그에 인접한 p태그'에다
+            <b>color:green</b> 적용하기 </p>
+        <p> id="c"인 p태그에 인접한 p태그</p>
+        <p title="mytt">7. title속성을 가진 p태그에
+            <b>font-size:20pt</b> 적용하기
+        </p>
+    </div>
+</body>
+</html>
