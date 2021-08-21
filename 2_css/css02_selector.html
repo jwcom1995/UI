@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자</title>
+<link href="resources/css02.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>선택자</h1>
+
+    <article>
+        <h3>타입 선택자</h3>
+        <pre>태그 이름을 지정하여 선언</pre>
+    </article>
+
+    <article>
+        <h3>id 선택자</h3>
+        <ul>
+            <li id ="sid01">요소에 id를 지정하고</li>
+            <li id ="sid02">style에서 지정된 id값을 사용</li>
+            <li id ="sid03">#으로 구분</li>
+        </ul>
+    </article>
+
+    <article>
+        <h3> class 선택자 </h3>
+        <ol>
+            <li id = "scls01" class="scls">요소에서 class를 지정하고</li>
+            <li class="scls">style에서 지정된 class값을 사용</li>
+            <li class="scls">.(dot)로 구분</li>
+        </ol>
+    </article>
+
+    <article>
+        <h3> 전체 선택자 </h3>
+    </article>
+
+    <article id="at">
+        <h3> 자식 선택자 </h3>
+        <div>
+            <p>자식1</p>
+        </div>
+        <p>자식?</p>        
+    </article>
+
+    <article>
+        <b>인접?</b>
+        <h3>인접 선택자</h3>
+        <b>지정한 요소 다음</b>
+        <span>에 나오는 요소 선택</span>
+        <b>인접?</b>
+    </article>
+
+    <article>
+        <h3>속성 선택자</h3>
+        <p title="a">속성이 정의된</p>
+        <p title="b">태그만 선택하는</p>
+        <p name="c">선택자</p>
+    </article>
+
+    <article>
+        <h3>가상 클래스 선택자</h3>
+        <ul>
+            <li>특정 이벤트가 발생된 태그</li>
+            <li><a href="http://www.naver.com">네이버</a></li>
+            <li><a href="http://www.google.com">구글</a></li>
+            <li><a href="http://www.daum.net">다음</a></li>
+            <li><input type="checkbox" value="selected"> 체크박스!</li>
+        </ul>
+    </article>
+
+    <article>
+        <h3 class="acls01">종속 선택자</h3>
+        <ol>
+            <li class="acls01">타입 선택자와</li>
+            <li class="acls02">id 선택자(#)</li>
+            <li class="acls01">class 선택자(.)</li>
+            <li class="acls02" id="sidli">가 혼합된 형태입니다.</li>    
+        </ol>
+    </article>
+    
+    <article>
+        <h3>하위 선택자</h3>
+        <div>
+            <span>특정 요소 하위의</span>
+            <p>
+                <span>요소를 지정할 때 사용</span>
+                <p>
+                    <span>한번 더</span>
+                </p>
+            </p>
+        </div>
+    </article>
+
+    <article>
+        <h3>그룹 선택자</h3>
+        
+        <p>여러 요소에서</p>
+        <pre>각각 같은 속성을</pre>
+        <strong>적용한다.</strong>
+    </article>
+</body>
+</html>
