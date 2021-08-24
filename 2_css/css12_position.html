@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position</title>
+<style type="text/css">
+/*
+static (본래위치)
+relative: 상대위치 (기준 : 본래 위치)
+absolute: 절대위치 (기준 : 태그가 속한 곳)
+fixed : 고정위치
+*/
+#box{
+    width:550px;
+    border:1px dotted red;
+    position:relative;
+}
+p{
+    width:130px;
+    height:100px;
+    color:white;
+}
+.myred{
+    background-color: red;
+    position:relative;
+}
+.myblue{
+    background-color: blue;
+    position:absolute;
+    left:100px;
+    top:30px;
+    z-index:5; /*다른 박스보다 앞으로*/
+}
+.mygreen{
+    background-color: green;
+    position:relative;
+    left:30px;
+    top:-30px;
+}
+.myred:hover{ z-index: 100;}
+.myblue:hover{ z-index: 100;}
+.mygreen:hover{ z-index: 100;}
+#fixed{
+    width: 100px;
+    height: 300px;
+    background-color: silver;
+    position:fixed;
+    right:50px;
+    top:100px;
+}
+</style>
+</head>
+<body>
+    <div id="box">
+        <p class="myred">박스의 크기와 위치를 잘 살펴보아야 합니다.</p>
+        <p class="myblue">박스의 포지션 속성을 바꿔가며 테스트 해 보아야 합니다.</p>
+        <p class="mygreen">포지션을 이해하기 위해서는 시험해보고 관찰해 보는것이 필요합니다.</p>
+    </div>
+    <div id ="fixed">
+        fixed!!!!
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
