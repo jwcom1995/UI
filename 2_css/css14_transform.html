@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform</title>
+<style type="text/css">
+div{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    color:white;
+    font-size:30pt;
+}
+#tlate{
+    transform : translate(50px,50px);
+}
+#trotate{
+    transform : rotate(30deg);
+}
+#tskew{
+    transform : skew(30deg,20deg);
+}
+
+#tran{
+    transition : width 0.5s, background 1.5s,transform 1.5s; 
+    /*각 속성값이 변할때 걸리는 시간*/
+}
+
+#tran:hover{
+     width:800px;
+     background-color: blue;
+     transform:translate(300px,0px);
+ }
+li{
+    width : 500px;
+    background-color: pink;
+    margin-bottom:3px;
+    font-size :30pt;
+    font-weight: bold;
+    list-style-type: none;
+    transition : width 1s linear, color 1s linear, background-color 1s linear, letter-spacing 1s;
+    /* linear : 일정한 속도 */
+    cursor : pointer;
+    /* 클릭할 수 있게 속성 부여 
+        pointer : 손모양 커서
+        help : ? 커서
+        crosshair : + 커서
+    */
+}
+li:hover{
+    width:800px;
+    color:white;
+    background-color: blueviolet;
+    letter-spacing:5px;
+}
+</style>
+</head>
+<body>
+    <h2>transform - translate</h2>
+    <div id="tlate">translate(x,y) : 위치이동</div>
+    <br><br>
+    <h2>transform - rotate</h2><br>
+    <div id="trotate">rotate(deg) : 회전</div>
+    <br><br>
+    <h2>transform - skew</h2><br>
+    <div id="tskew">skew(deg,deg) : 변형</div>
+    <br><br>
+    <h2>transition 속성 전환</h2>
+    <div id="tran">transition</div>
+    <br><br>
+    <h2>Moving MainMenu</h2>
+    <ul>
+        <li>COMPANY</li>
+        <li>PRODUCT</li>
+        <li>SERVICE</li>
+        <li>CUSTOMER SUPPORT</li>
+        <li>COMMUNITY</li>
+    </ul>
+</body>
+</html>
