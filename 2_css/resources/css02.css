@@ -1,0 +1,106 @@
+
+/*타입 선택자*/
+
+pre{
+    text-align: center;
+}
+
+h1{ text-align:right;
+    color:blue;
+}
+
+/*id 선택자*/
+#sid01{
+    color:green;
+}
+#sid02{
+    color:yellow;
+}
+#sid03{
+    color:brown;
+}
+
+/* class 선택자*/
+.scls{
+    color:pink;
+}
+#scls01{
+    color:green;
+}
+
+/* 전체 선택자
+*{
+    text-align: right;
+    margin : 0;
+    padding: 0;
+}*/
+
+/* 자식 선택자 */
+#at > p{
+    color:orange;
+}
+#at>div>p{
+    color:blue;
+}
+
+/* 인접 선택자*/
+h3+b{
+    background-color: yellow;
+    color: brown;
+}
+span+b{
+    background-color: black;
+    color:white;
+}
+
+/*속성 선택자*/
+p[title]{
+    color:skyblue;
+}
+p[title="b"]{
+    color:yellow;
+}
+p[name]{
+    color:green;
+}
+
+/*가상 클래스 선택자*/
+a:link{
+    color:pink;
+}
+a:visited{
+    color:gray;
+}
+a:hover{
+    background-color: purple;
+} /*링크위에 마우스가 올라가 있는 경우*/
+a:active{
+    color:red;
+} /*링크를 클릭할때*/
+input:checked{
+    width:200px;
+    height:200px;
+}
+
+/*종속 선택자*/
+li.acls01{
+    background-color: green;
+}
+li.acls02#sidli{
+    background-color: pink;
+    font-size: 20px;
+}
+/* 
+    자식 선택자 : 바로 아래 태그만
+    하위 선택자 : 아래에 있는 태그 모두
+*/
+
+/*하위 선택자*/
+div span{
+    background-color: yellow;
+}
+
+/*그룹 선택자*/
+p,pre,strong{
+    color:lime;
+}
