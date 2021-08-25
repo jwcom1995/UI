@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+<style type="text/css">
+#gallery{
+    border : 10px solid black;
+    height : 300px;
+    width  : 450px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+}
+#gallery ul{
+    margin-left : -30px;
+}
+#gallery ul li{
+    list-style-type: none;
+    display: inline-table; /*테이블 스타일로 배치*/
+    padding : 10px;
+
+}
+#gallery ul li .pic{
+    width : 320px;
+    height : 320px;
+    opacity:0;          /*안보이게 해줌*/
+    visibility: hidden;
+    position:absolute;
+    margin-top: 10px;
+    margin-left:-20px;
+    border : 1px solid blue;
+}
+#gallery ul li .small:hover{
+    cursor: pointer;
+}
+#gallery ul li:hover .pic{
+    opacity: 1;
+    visibility: visible;
+    float : right;
+    width: 320px;
+    height:240px;
+}
+</style>
+</head>
+<body>
+    <h2>사진 갤러리 만들기</h2>
+    <hr>
+    <div id = "gallery">
+        <ul>
+            <li>
+                <img src="image/img01.png" class="small" width="120" height="90">
+                <img src="image/img01.png" class="pic">
+            </li>
+            <li>
+                <img src="image/img02.png" class="small" width="120" height="90">
+                <img src="image/img02.png" class="pic">
+            </li>
+            <li>
+                <img src="image/img03.png" class="small" width="120" height="90">
+                <img src="image/img03.png" class="pic">
+            </li>
+            <li>
+                <img src="image/img01.png" class="small" width="120" height="90">
+                <img src="image/img01.png" class="pic">
+            </li>
+            <li>
+                <img src="image/img02.png" class="small" width="120" height="90">
+                <img src="image/img02.png" class="pic">
+            </li>
+            <li>
+                <img src="image/img03.png" class="small" width="120" height="90">
+                <img src="image/img03.png" class="pic">
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
