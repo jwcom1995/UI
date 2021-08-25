@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+<style type="text/css">
+    div{
+        width: 100px;
+        height: 100px;
+        font-size:30pt;
+        background-color: red;
+        word-wrap:break-word; /*설정 영억보다 글이 긴경우 강제로 영역안에 넣어줌*/
+        animation : rotate 2s linear;
+        /*2초동안 무한 반복*/
+
+
+    }
+
+    @keyframes mybox{
+        0%{width: 150px; height: 150px; background-color: yellow; transform:translate(10px,10px)}
+        50%{width:250px; height:250px;background-color:orange; transform:translate(100px,100px)}
+        100%{width:200px; height:200px;background-color: red; transform:translate(10px,10px)}
+    }
+    @keyframes rotate{
+        0%{width: 150px; height: 150px; background-color: yellow; transform:translate(40px,0px)}
+        25%{width:150px; height: 150px;background-color:orange; transform:translate(0px,40px)}
+        50%{width: 150px; height: 150px; background-color: red; transform:translate(-40px,0px)}
+        75%{width:150px; height: 150px;background-color:orange; transform:translate(0px,-40px)}
+        100%{width:150px; height: 150px;background-color: yellow; transform:translate(40px,40px)}
+    }
+</style>
+</head>
+<body>
+    <h1> Animation 효과 </h1>
+    <div>Animation</div>
+</body>
+</html>
