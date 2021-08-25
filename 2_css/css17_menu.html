@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nav menu</title>
+<style type="text/css">
+    .navi{
+        list-style-type: none;
+        height : 40px;
+        padding:0;
+        margin:0;
+    }
+    .navi li{
+        float : left;
+        position: relative;
+        padding : 0;
+        line-height: 40px;
+        background-color: palegoldenrod;
+    }
+    .navi li a{
+        color : black;
+        font-weight: bold;
+        padding :  5px 25px;
+        text-decoration: none; /* a태그 밑줄 제거*/
+    }
+    .navi li a:hover{
+        color : blueviolet;
+    }
+    .navi li ul{
+        list-style: none;
+        position : absolute;
+        left:0;
+        width:180px;
+        background-color: burlywood;
+        padding:0;
+        margin:0;
+        opacity:0;
+    }
+    .navi li:hover ul{
+        opacity:1;
+    }
+    .navi li .sub{
+        background-color: burlywood;
+    }
+    .navi li ul li{
+        float:none;
+        position: static;
+        height : 0;
+        line-height: 0;     /* 서브 메뉴 값들이 겹쳐지게됨 */
+        background-color: none;
+    }
+    .navi li:hover ul li{
+        height : 30px;
+        line-height:30px;
+        padding: 5px 0;
+        background-color: burlywood;
+    }
+    .navi li ul li a {
+        color : white;
+    }
+    .navi li{
+        transition: all 0.2s;
+    }
+    .navi li a{
+        transition: all 0.2s;
+    }
+    .navi li ul li{
+        transition: height 0.5s;  /*아래로 펼쳐지는 효과*/
+    }
+</style>
+</head>
+<body>
+    <h2>서브 메뉴가 펼쳐지는 네비게이션 메뉴 만들기</h2>
+    <hr>
+    <ul class="navi">
+        <li><a href="#">home</a></li>
+        <li><a href="#">웹개발</a>
+            <ul class>
+                <li><a href="#">웹디자인</a></li>
+                <li><a href="#">HTML5 + css3</a></li>
+                <li><a href="#">JQeury</a></li>
+                <li><a href="#">웹</a></li>
+            </ul>
+        </li>
+        <li><a href="#">게시판</a>
+            <ul class>
+                <li><a href="#">Q&A</a></li>
+                <li><a href="#">방명록</a></li>
+            </ul>
+        </li>
+        <li><a href="#">프로필</a></li>
+    </ul>
+</body>
+</html>
