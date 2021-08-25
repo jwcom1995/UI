@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice01</title>
+</head>
+<style type="text/css">
+    fieldset{
+        left: 30px;
+        width:400px;
+        padding:10px 20px;
+        background-color: rgb(91, 134, 24);
+        border-radius: 20px 20px 20px 20px;
+    }
+    li{
+        list-style: none;
+        padding-top: 10px;
+        padding-bottom:2px;
+    }
+    .in{ 
+        list-style-type: none;
+        padding: 10px;
+        margin : 3px;
+        border: 1px solid white;
+        position:relative;        
+        border-radius: 5px 5px 5px 5px;
+        z-index:1;
+        height:20px;  
+    }
+    .in::after{
+        content:"";
+        background-color: white;
+        opacity:0.3;
+        position:absolute;
+        top:0px;
+        bottom:0px;
+        left:0px;
+        right:0px;
+        z-index:-1;
+    }
+    input{
+        float:right;
+    }
+    #rinput{
+        float:left;
+    }
+    #sm{
+        float:left;
+        border-radius: 10px 10px 10px 10px ;
+        background-color:rgb(52, 82, 7);
+        color:white;
+        font-weight: bold;
+    }
+    a{
+        text-decoration: none;
+    }
+</style>
+<body>
+    <h1>CSS3</h1>
+    <fieldset>
+        
+        <li >Step 1: 로그인 정보</li>
+        <li class="in">아이디          <input type="text"></li>
+        <li class="in">비밀번호        <input type="password"></li>
+        <li class="in">비밀번호 확인   <input type="password"></li>
+        <li class="in">회원등급        <input type="text" value="준회원"></li>
+        
+        <li>Step 2: 개인정보</li>
+        <li class="in">이름  <input type="text" maxlength="5" placeholder="5자미만 공백없이" ></li>
+        <li class="in">메일 주소 <input tpye="email" placeholder="abcd@domain.com"></li>
+        <li class="in">연락처 <input type="tel"></li>
+        
+        <li>Step 3:코딩 숙련도(상,중,하)</li>
+        <li class="in"><input type="range" min=0 max=2 step=1 id="rinput"></li>
+        <li style="margin-top: 15px; margin-bottom: 20px;"><a href="#" 
+            style="color:white; background-color: rgb(52, 82, 7); border-radius: 1em;padding:5px 30px;">제출</a></li>
+    </fieldset>
+    <br><br><br>
+</body>
+</html>
+
+<!--
+
+    <li><button type="submit" 
+            style="color:white; background-color: rgb(30, 78, 30); border-radius: 1em;padding:5px 30px;">제출</button></li>
+
+-->
