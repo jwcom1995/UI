@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+<script type="text/javascript">
+    
+    function func01(){
+        alert("명시적 함수");
+    }
+
+    var func02=function(){
+        alert("익명함수");
+    }
+
+    function func03(){ 
+        literalPrn(function(msg){ alert(msg); });
+    }
+    
+    function literalPrn(literal){
+        literal("안녕하세요. 리터럴입니다.");
+    }
+
+    function varTest(){
+        var val = "";
+        for(var i = 0; i < arguments.length;i++){
+            val += arguments[i]+" ";
+        }
+        alert(val);
+    }
+    
+    function closureTest(val){
+        var msg = "였군요!";
+        function addVal(){
+            alert(val + " "+msg);
+        }
+        return  addVal;
+    }
+
+    var amEdu= closureTest("javascript");
+
+    function pmEdu(val){
+        // var tmp = closureTest(val);
+        // tmp();
+        closureTest(val)();  // 함수에 괄호를 붙여 실행
+    }
+    
+</script>
+<style type="text/css">
+    .select{
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <h1>함수</h1>
+
+    <h2>함수의 종류</h2>
+    <p onclick="func01();" class="select">1. 명시적 함수</p>
+    <p onclick="func02();" class="select">2. 익명 함수</p>
+    <p onclick="func03();" class="select">3. 리터럴 함수</p>
+    
+    <h2 onclick="varTest('k','h','정보','교육원');" class="select">args(arguments) 속성</h2>
+
+    <h2>클로저 (함수 리턴)</h2>
+    <label for = "am">오전강의</label>
+    <input type="text" id="am" value=" ">
+    <input type="button" id="클릭" onclick="amEdu();" value="클릭">
+    <br>    
+    <label for = "pm">오후강의</label>
+    <input type="text" id="pm" value=" ">
+    <input type="button" id="클릭" onclick="pmEdu(pm.value);" value="클릭">
+</body>
+</html>
