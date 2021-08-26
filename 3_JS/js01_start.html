@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>start</title>
+<!-- 3. 외부 작성 방식 -->
+<script type="text/javascript" src="js/test.js"></script>
+<!-- 2. 내부 작성 방식 -->
+<script type="text/javascript">
+    function embeddedTest(){
+        var doc=document.getElementsByTagName("li")[1];
+        doc.style.color = "red";
+        doc.innerHTML="<strong> 글자가 바뀝니다.</strong>";
+    }
+
+</script>
+</head>
+<body>
+    <h1>자바스크립트의 작성방식 3가지</h1> 
+    <ol>
+        <!-- 1.inline -->
+        <li onclick="window.alert('inline');">1. 인라인 방식</li>
+        <li onclick="embeddedTest();">2. 내부 작성 방식(embedded)</li>
+        <li onclick="test();">3.외부 링크 방식(.js)</li>
+    </ol>
+</body>
+</html>
