@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable</title>
+<script type="text/javascript">
+
+    // 화면이 실행되자마자 함수 실행
+    window.onload = function(){
+        alert("load 후 실행");
+    };  
+
+    var variable = 10;  //전역 변수 : 공용으로 사용, 값 유지용
+
+    function test01(){
+        variable = variable+5;
+        document.getElementById("v01").innerHTML =
+            "<b style='color:red; background:yellow;'>"+variable+"</b>";
+    }
+
+    function test02(){
+        var variable2=variable+100; //지역변수
+        document.getElementById("v02").innerHTML =
+            "<b>"+variable2+"</b>";
+    }
+    function test03(){
+        //문자
+        var variable3="문자";
+        alert(variable3+":"+typeof variable3);
+        //숫자
+        variable3 = 5;
+        alert(variable3+":"+typeof variable3);
+        //논리
+        variable3 = true;
+        alert(variable3+":"+typeof variable3);
+        //널
+        variable3 = null;
+        alert(variable3+":"+typeof variable3);
+        //배열
+        variable3 = [1,3,4,5,6];
+        alert(variable3+":"+typeof variable3);
+        //객체
+        variable3={
+            name:"이창진",
+            age:19,
+            id:"user1"
+        };
+        alert(variable3+":"+typeof variable3);
+        //함수
+        variable3 = function(){
+            alert("타입 확인");
+        }
+        alert(variable3 + ":"+typeof variable3);
+
+        variable3();
+    }
+</script>
+</head>
+<body>
+    <h1> 변수의 사용</h1>
+    <dl>
+        <dt>변수의 선언 규칙</dt>
+        <dd>1. 대소문자 구분한다.</dd>
+        <dd>2. 영문,$,_ 로 시작해야 한다.</dd>
+        <dd>3. 영문,$,_,숫자 를 포함할 수 있다.</dd>
+        <dd>4. 키워드나 예약어 사용할 수 없다.</dd>
+
+        <dt>변수의 범위</dt>
+        <dd>1. 전역변수 : window 객체에 포함되는 변수로 다른 함수들에서 공용으로 사용할 수 있다.(값 유지)
+            <button onclick="test01();">확인</button>
+        </dd>
+        <dd id="v01"></dd>
+        <dd>2. 지역변수 : 함수나 객체 내부에 선언되고 실행이 종료되면 사라짐
+            <button onclick="test02();">확인</button>
+        </dd>
+        <dd id="v02"></dd>
+
+        <dt>변수의 선언과 저장</dt>
+        <dd>1. var(const,let) 키워드를 사용하여 변수 선언</dd>
+        <dd>2. 변수의 타입은 저장되는 타입에 따라 결정된다.
+            <button onclick="test03();">확인</button>
+        </dd>
+    </dl>
+</body>
+</html>
