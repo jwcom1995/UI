@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+<script type="text/javascript">
+    window.onload=function(){
+        //변수에 넣어서 사용하는게 아니므로 ()없이 함수 사용 가능
+        document.getElementsByTagName("button")[0].onclick=testData01;
+        document.getElementsByTagName("button")[1].onclick=testData02;
+        document.getElementsByTagName("button")[2].onclick=testData03;
+    }
+    function testData01(){
+        var doc = document.getElementById("today");
+
+        var date = new Date();
+
+        doc.innerHTML += "toDateString() : " +date.toDateString()+"<br>";
+        doc.innerHTML += "toLocaleDateString() : "+date.toLocaleDateString() + "<br>";
+        doc.innerHTML += "toLocaleString() : "+date.toLocaleString() +"<br>";
+        doc.innerHTML += "toLocaleTimeString() : "+date.toLocaleTimeString()+"<br>"
+    }
+    function testData02(){
+        var date = new Date();
+
+        var year = date.getFullYear();
+        var month = date.getMonth()+1;
+        var day = date.getDate();
+        var week = date.getDay();
+
+        var dayOfWeek =["일","월","화","수","목","금","토"]
+
+        document.getElementById("today").innerHTML = year+"/"+month+"/"+day+"/"+dayOfWeek[week];
+
+    }
+    function testData03(){
+        var year = 2020;
+        var month = 6;
+        var day = 13;
+
+        var date = new Date(year, month-1,day);
+
+        document.getElementById("specific").innerHTML=date;
+    }
+</script>
+</head>
+<body>
+    <h1>오늘 날짜 출력하기</h1>
+    <span id = "today"></span><br>
+    <button>오늘날짜</button>
+    <button>오늘날짜2(표현)</button>
+
+    <hr>
+    <h1>특정 날짜 출력하기</h1>
+    <span id="specific"></span><br>
+    <button>특정날짜</button>
+</body>
+</html>
