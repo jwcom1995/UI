@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math</title>
+<style type="text/css">
+    .area1{
+        border: 1px solid red;
+        height: 300px;
+    }
+</style>
+<script type="text/javascript">
+    function test01(){
+        var num1=-123;
+        var doc =document.getElementById("area1");
+
+        doc.innerHTML += "절대값: " + Math.abs(num1) + "<br>";
+
+        doc.innerHTML += "임의의 난수 발생: "+Math.random() + "<br>";
+
+        doc.innerHTML += "반올림: " + Math.round(123.456*100)/100 + "<br>";
+        doc.innerHTML += "내림: " + Math.floor(123.456*100)/100+"<br>";
+        doc.innerHTML += "올림: " + Math.ceil(123.456) + "<br>";
+
+        doc.innerHTML += "pi: "+ Math.PI+"<br>";
+    }
+</script>
+</head>
+<body>
+    <h1>Math</h1>
+    <button onclick="test01();">숫자처리 메소드</button>
+    <div id="area1" class="area1"></div>
+</body>
+</html>
