@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+<style type="text/css">
+    .area1{
+        border:1px solid red;
+        height: 450px;
+    }
+</style>
+<script type="text/javascript">
+    function showStringMethod(){
+        var str1 = "Apple iPhone";
+        var doc = document.getElementById("area1");
+        
+        doc.innerHTML += "toUpperCase(): "+str1.toUpperCase()+ "<br>";
+        doc.innerHTML += "toLowerCase(): "+str1.toLowerCase()+ "<br>";
+
+        doc.innerHTML += "length: "+str1.length+"<br>";
+
+        doc.innerHTML += "문자열에서 e의 위치: "+(str1.indexOf('e')+1)+"번째 위치 <br>";
+        doc.innerHTML += "뒤에서부터 e의 위치: "+(str1.lastIndexOf('e')+1)+"번째 위치<br>";
+
+        for(var i =0; i <str1.length;i++){
+            doc.innerHTML += i+"번째 인덱스 : "+str1.charAt(i)+"<br>";
+        }
+    }
+    function strTest01(){
+        var str01="String";
+        var str02="Test";
+
+        //'+' 연산자 사용
+        var str03= str01+str02;
+        alert("String+ Test = " + str03);
+
+        //concat()
+        var str04=str01.concat(" Test"," Java"," Script");
+        alert("concat = "+str04);
+
+        //join() : 특정 값을 배열 요소들 사이에 삽입해서 문자열로 반환
+        var joinTest =["5","6","13","20","25"].join("+");
+        alert(joinTest);
+    }
+    function strTest02(){
+        var str = prompt("이름을 입력하세요 : ");
+
+        if(str=="kh"){
+            alert(str+"님 환영합니다.");
+        } else if (str.toLowerCase() == "kh"){
+            alert(str+"님 환영합니다.");
+        } 
+        else{
+            alert("이름을 확인해주세요.");
+        }
+        
+        //'=='연산자 : 숫자 10과 문자10 같다고 판단 (자동형변환)
+        var numVal = 10;
+        if(numVal =="10"){
+            alert("==연산자 사용: 숫자 10이 맞습니다.");
+        } else{
+            alert("==연산자 사용: 숫자 10이 아닙니다.");
+        }
+
+        // '===' 연산자 : 자료형 까지 판단하여 비교 (자동형변환 x)
+        if(numVal ==="10"){
+            alert("===연산자 사용: 숫자 10이 맞습니다.");
+        } else{
+            alert("===연산자 사용: 숫자 10이 아닙니다.");
+        }
+
+        var strObj = new String("kh"); //객체        
+        var strStr = "kh";
+        alert(strObj);
+
+        if(strObj == strStr){
+            alert("문자가 같다.");
+        }
+    }
+
+    function strTest03(){
+        //indexof, substring
+        var strVal="문자열 추출하기.관련 함수:indexOf,substring.";
+        var startIndex=(strVal.indexOf(":")+1);
+        var endIndex=strVal.lastIndexOf(".");
+        var subStr = strVal.substring(startIndex,endIndex);
+        alert(subStr);
+
+        //split
+        var splitVal = subStr.split(",");
+        alert("splitVal[0] :"+splitVal[0]);
+        alert("splitVal[1] :"+splitVal[1]);
+    }
+</script>
+</head>
+<body>
+    <h1>String</h1>
+    <p>"",''로 묶여있는 리터럴이다.<br>
+        자바스크립트의 내장객체로 String객체의 기본 메소드가 있다.
+    </p>
+    <button onclick="showStringMethod();">문자열 처리 메소드</button>
+    <div id="area1" class="area1"></div>
+    <br>
+    <p>
+        문자열 합치기 <button onclick="strTest01();">클릭</button><br>
+        문자열 비교하기 <button onclick="strTest02();">클릭</button><br>
+        문자열 추출하기 <button onclick="strTest03();">클릭</button><br>
+    </p>
+
+</body>
+</html>
