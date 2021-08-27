@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rolling gallery</title>
+<style type="text/css">
+    a{          
+        font-size:50pt;
+        cursor:pointer;
+    }
+    p{
+        width:350px;
+        height:350px;
+    }
+    #gallery{
+        position: relative;
+        top:100px;
+        width:200px;
+        height:200px;
+    }
+</style>
+<script type="text/javascript">
+    var num=1;
+    function nextGallery(){
+        num++;
+        if(num==4){
+            num=1;
+        }
+        document.getElementById("gallery").src="image/img0"+num+".png";
+    }
+    function prevGallery(){
+        num--;
+        if(num==0){
+            num=3;
+        }
+        document.getElementById("gallery").src="image/img0"+num+".png";
+    }
+</script>
+</head>
+<body>
+    <div id ="galleryWrap">
+        <p>
+            <a onclick="prevGallery();">◀</a>
+            <img src="image/img01.png" id="gallery">
+            <a onclick="nextGallery();">▶</a>
+        </p>
+    </div>
+</body>
+</html>
