@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+<style type="text/css">
+    .area1{
+        border : 1px solid red;
+        padding : 10px;
+        height : 250px;
+    }
+</style>
+<script type="text/javascript">
+    function arrayTest1(){
+        var arr = ['이창진',20,true,[1,2,3,4]]
+        document.getElementById("area1").innerHTML= arr;
+        console.log(arr);
+
+        //배열 선언
+        var arr1 = new Array();
+        var arr2 = new Array(3);
+        var arr3 = new Array(1,2,3,4,5);
+
+        console.log(arr1[0]);
+        console.log(arr2[0]);
+        console.log(arr3);
+
+        console.log("배열에 값 대입");
+
+        //값 대입
+        arr1[0]='바나나';
+        arr1[1]='복숭아';
+        arr1[2]='망고';
+        arr1[5]='수박';     //값 대입을 하지 않은 인덱스는 빈공간으로 남기고 이동
+
+        console.log(arr1);
+
+        arr2[0]="자동차";
+        arr2[1]="비행기";
+        arr2[2]="기차";
+        arr2[3]="자전거";   //미리 설정해둔 크기를 넘어가도 생성
+        arr2[4]="우주선";
+
+        console.log(arr2);
+    }
+    function arrayTest2(){
+        var doc = document.getElementById("area2");
+
+        //indexof
+        var arr =['사과','방토','바나나','복숭아','키위','포도','딸기'];
+        doc.innerHTML +="바나나가 있는 인덱스: "+ arr.indexOf('바나나')+"<br>";
+
+        //concat
+        var cArr=['사과','방토','바나나'];
+        var cArr2=['복숭아','키위','포도','딸기'];
+
+        doc.innerHTML += "cArr을 기준으로 배열 합침 : "+ cArr.concat("치즈")+"<br>";
+        doc.innerHTML += "cArr2을 기준으로 배열 합침 : "+ cArr2.concat(cArr)+"<br>";
+
+        //reverse
+        var rArr = [1,2,3,4,5,6,7,8,9];
+        console.log(rArr);
+        doc.innerHTML += "rArr : "+rArr +"<br>";
+        doc.innerHTML += "rArr의 역순 : "+ rArr.reverse()+"<br>";
+        doc.innerHTML += "rArr 재출력 : "+rArr +"<br>";
+
+    }
+    function arrayTest3(){
+        var doc = document.getElementById("area3");
+
+        //push(): 배열의 맨 뒤에 요소 추가, pop() : 배열의 맨 뒤에 요소 제거
+        var arr = ['서초동','방배동','역삼동','삼성동','대치동'];
+
+        doc.innerHTML += "arr의 기본값 : "+arr+"<br>";
+
+        arr.push('수원시');
+        doc.innerHTML += "arr에 push : "+arr+"<br>";
+
+        arr.sort();
+        doc.innerHTML += "arr의 정렬 : "+arr+"<br>";
+
+        arr.push('안양시');
+        doc.innerHTML += "arr에 push : "+arr+"<br>";
+
+        doc.innerHTML += "arr에서 pop : "+arr.pop()+"<br>";
+        doc.innerHTML += "pop실행 후 arr: "+arr+"<br>";
+
+        //shift() : 배열의 맨 앞에 요소 제거 unshift(): 배열의 맨 앞에 요소 추가
+        doc.innerHTML += "arr의 shift : "+arr.shift()+"<br>";
+        doc.innerHTML += "shift 실행 후 arr : "+arr+"<br>";
+
+        doc.innerHTML += "arr에 unshift : "+ arr.unshift('화성시')+"<br>";
+        doc.innerHTML += "unshift 실행 후 arr : "+arr+"<br>";
+
+    }
+    function arrayTest4(){
+        var doc = document.getElementById("area4");
+
+        var arr = ['자바','오라클','html','css','JS'];
+
+        //slice(시작인덱스, 종료인덱스); : 원본에 영향 x , 정해진 idex를 잘라서 보여줌
+        doc.innerHTML += "arr : " + arr + "<br><br>";
+        doc.innerHTML += "arr에 slice : " + arr.slice(2,4)+"<br>";
+        doc.innerHTML += "slice 실행 후 arr : "+ arr + "<br><br>";
+
+        //splice(index, 제거할 인덱스 수, 추가 값) : 원본에 영향 o
+        //splice(index, 제거할 인덱스 수) : 추가값 사용 안해도 가능
+        doc.innerHTML += "arr에 splice : "+ arr.splice(2,2,'spring') + "<br>";
+        doc.innerHTML += "splice 실행 후 arr : "+ arr + "<br><br>";
+
+        //toString()
+        var str = arr.toString();
+        doc.innerHTML += "arr에 toString 실행: "+ str+"<br>";
+        doc.innerHTML += "str의 자료형: "+ typeof(str)+"<br>";
+    }
+</script>
+</head>
+<body>
+    <h1>배열 객체</h1>
+    <h3>배열이란?</h3>
+    <div id ="area1" class="area1"></div>
+    <button onclick="arrayTest1();">확인하기</button>
+
+    <hr>
+    <h3>Array객체의 메소드</h3>
+    <div id = "area2" class="area1"></div>
+    <button onclick="arrayTest2();">확인하기</button>
+
+    <h3>Array객체의 메소드2</h3>
+    <div id = "area3" class="area1"></div>
+    <button onclick="arrayTest3();">확인하기</button>
+
+    <h3>Array객체의 메소드3</h3>
+    <div id = "area4" class="area1"></div>
+    <button onclick="arrayTest4();">확인하기</button>
+</body>
+</html>
