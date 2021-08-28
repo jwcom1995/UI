@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+<script type="text/javascript">
+    function opTest01(){
+        var check1 = 1;
+        var check2 = "1";
+
+        var doc = document.getElementById("area1");
+        doc.innerHTML += "<br> check1 = 1 <br>check2 = '1'<br><br>";
+
+        doc.innerHTML += "check1 != 1 : " + (check1 != 1)+"<br>";
+        doc.innerHTML += "check1 != '1' : "+ (check1 !="1")+"<br>";
+        doc.innerHTML += "check2 != 1 : " + (check2 != 1)+"<br>";
+        doc.innerHTML += "check2 != '1' : "+ (check2 !="1")+"<br><br>";
+        
+        doc.innerHTML += "check1 !== 1 : " + (check1 !== 1)+"<br>";
+        doc.innerHTML += "check1 !== '1' : "+ (check1 !=="1")+"<br>";
+        doc.innerHTML += "check2 !== 1 : " + (check2 !== 1)+"<br>";
+        doc.innerHTML += "check2 !== '1' : "+ (check2 !=="1")+"<br>";
+    
+    }
+</script>
+</head>
+<body>
+    <h1>!=, !==연산자</h1>
+    <button onclick="opTest01();">테스트</button>
+    <div id="area1"></div>
+    
+    <h1>연산자를 이용한 짧은 조건문 사용 테스트</h1>
+    <button onclick="check();">확인</button>
+    <script type="text/javascript">
+        function check(){
+            var no = Number(window.prompt("숫자 입력!"));
+
+            //짧은 조건문 : ||는 거짓이면 실행, &&은 참이면 실행
+            no % 2 == 0 || alert("홀수입니다.");
+            no % 2 == 0 && alert("짝수입니다.");
+        }
+    </script>
+</body>
+</html>
