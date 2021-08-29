@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>createTable</title>
+    <style>
+        td{
+            width:50px;
+            height:50px;
+        }
+        li{
+            list-style-type: none;
+            margin : 10px;
+        }
+        table,tr,td{
+            border:1px solid black;
+        }
+        td{
+            width: 10px;
+            height:10px;
+        }
+
+    </style>
+</head>
+<body>
+	<h1> 행 열 갯수 각각 입력받아 테이블 만들기 </h1>
+    <h5> 힌트 : 반복문은 자바랑 같습니다. 다만! 변수만 var 데이터형이라는걸 기억해주세요 </h5>
+	
+    <form>
+        <fieldset>
+            <li>행 개수 : <input type="text" id="row"></li>            
+            <li>열 개수 : <input type="text" id="col"></li>
+        </fieldset>
+
+    </form>
+    <button onclick="makeTable();">테이블 생성</button>
+    
+    <br>
+    <div id="area1"></div>
+	
+	<script>
+    	function makeTable(){
+            var doc = document.getElementById("area1");
+            
+            var row = parseInt(document.getElementById("row").value);
+            var col = parseInt(document.getElementById("col").value);
+
+            var line = "";
+
+            line +="<table>";
+            for(var i = 0 ; i<row ; i++){
+                line += "<tr>";
+                for(var j = 0 ; j<col ; j++){
+                    line += "<td></td>";
+                }
+                line += "</tr>";
+            }
+            line +="</table>";
+            
+            doc.innerHTML = line;       
+
+    	}
+	</script>
+	
+	
+</body>
+</html>
