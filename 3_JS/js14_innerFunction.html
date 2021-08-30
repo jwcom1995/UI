@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style type="text/css">
+    div{
+        background-color: lightgray;
+        border: 1px solid black;
+        height : 350px;
+    }
+</style>
+<script type="text/javascript">
+    function test1(){
+        var URI = 'https://www.naver.com?test=한글입니다.';
+
+        var esURI = escape(URI);
+        var enURI = encodeURI(URI);
+        var enURC = encodeURIComponent(URI);
+
+        var doc = document.getElementById("area1");
+
+        doc.innerHTML += "escape() : "+esURI + "<br>";
+        doc.innerHTML += "encodeURI() : "+enURI + "<br>";
+        doc.innerHTML += "encodeURIComponent() : "+enURC + "<br><br><br>";
+        
+        doc.innerHTML += "unescape() : "+unescape(esURI) + "<br>";
+        doc.innerHTML += "decodeURI() : "+decodeURI(enURI) + "<br>";
+        doc.innerHTML += "decodeURIComponent() : "+decodeURIComponent(enURC) + "<br>";
+    }
+    function test2(){
+        var num1 = 10/0;
+        var num2 = 10/'a';
+
+        var doc = document.getElementById("area2");
+
+        doc.innerHTML += "10 / 0 : " + num1 + "<br>";
+        doc.innerHTML += "10 / 'a' : "+num2+"<br><br>";
+
+        doc.innerHTML += "isFinite() : "+ isFinite(num1) + "<br>";        
+        doc.innerHTML += "num1 == Infinity : "+ (num1 == Infinity) + "<br><br>";
+    
+        doc.innerHTML += "num1 == NaN : "+ (num2 == NaN) + "<br>";
+        doc.innerHTML += "isNan(num2) : "+ isNaN(num2) + "<br>";
+        }
+</script>
+</head>
+<body>
+    <h3>인코딩과 디코딩에 관련된 내장함수</h3>
+    <p>
+        escape : 영문 알파벳, 숫자, 일부 특수문자(@,*,-,_,.,/)를 제외한 모든 문자를 인코디한다<br>
+        encodeURI : escape 에서 인터넷주소에 사용되는 일부 특수문자 (:, ;, /, =, ?, &)는 변환하지 않는다<br>
+        encodeURIComponent : 알파벳과 숫자를 제외한 모든 문자를 인코딩
+        <br><br>
+        unescape : escape로 인코딩된 문자를 디코딩한다.<br>
+        decodeURI : encodeURI로 인코딩된 문자를 디코딩한다.<br>
+        decodeURIComponent : encodeURIComponent로 인코딩된 문자를 디코딩한다.<br>
+
+    </p>
+    <button onclick="test1();">실행확인</button>
+    <div id ="area1" class="area"></div>
+
+    <hr>
+    <h3>infinity 와 NaN</h3>
+    <p> 자바스크립트는 0으로 숫자를 나누면 infinity라는 값이 들어감 <br>
+    자바스크립트가 표현할 수 없는 숫자는 NaN(Not a Number)로 표시한다.
+    </p>
+    <button onclick="test2();">실행확인</button>
+    <div id="area2" class="area2"></div>
+</body>
+</html>
