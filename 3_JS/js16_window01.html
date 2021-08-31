@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	#regist{
+		border : 1px solid black;
+		background-color : pink;
+		position : absolute;
+		top : 200px;
+		left : 500px;
+		display : none;
+	}
+</style>
+
+<script type="text/javascript">
+function openWin(){
+	var url = "js16_window02.html";
+	var title = "";
+	var prop = "top=200px, left=600px , width=500px, height=500px";
+	window.open(url,title,prop);
+}
+function registForm(){
+	document.getElementById("regist").style.display="block";
+	document.body.style.background="gray";
+	
+	var btns = document.getElementsByName("btn");
+	for(var i in btns){
+		btns[i].disabled="disabled";
+	}
+}
+function closeWin(){
+	document.getElementById("regist").style.display = "none";
+	document.body.style.background = "white";
+	
+	var btns = document.getElementsByName("btn");
+	for(var i in btns){
+		btns[i].disabled="";
+	}
+}
+function idchk(){
+	alert("중복체크를 확인하세요.");
+}
+function idCheck(){
+	open("js16_window03.html","","width=300px,height=300px");
+}
+</script>
+
+</head>
+<body>
+	<h1>Window 객체</h1>
+	<pre>
+	프로퍼티
+	-document
+	-history
+	-location
+	-navigator
+	-screen
+	-frames
+	-parent
+	-top
+	-self
+	메소드
+	-alert()
+	-confirm()
+	-prompt()
+	-back()
+	-forward()
+	-open()
+	-close()
+	-...
+	</pre>
+	<hr>
+	<div id="f1">
+		<h1>팝업창 만들기</h1>
+		<button onclick="openWin();" name="btn">창열기</button>
+		<div id="tt"></div>
+		<hr><br><br>
+		<h1> 회원가입하기</h1>
+		<button onclick="registForm();" name="btn">회원가입</button>
+	</div>
+	
+	<!-- 회원가입 폼 시작-->
+	<div id ="regist">
+		<form>
+			<table>
+				<caption>회원가입</caption>
+				<tr>
+					<td>아이디</td>
+					<td>
+						<input type="text" name="id" onclick="idchk();" readonly="readonly">
+						<input type="button" value="중복체크" onclick="idCheck();">
+					</td>
+				</tr>
+				<tr>
+					<td>패스워드</td>
+					<td><input type="password" name="pwd" style="color:red;"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" value="확인" onclick="closeWin();">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
