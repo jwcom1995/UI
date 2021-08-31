@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function test(){
+		var val = document.getElementsByName("text")[0].value;
+		window.opener.document.getElementById("tt").innerHTML=val;
+		close();
+	}
+</script>
+</head>
+<body>
+	<input type="text" name="text">
+	<input type="button" value="전달" onclick="test();">
+	<input type="button" value="창닫기" onclick="self.close();">
+</body>
+</html>
