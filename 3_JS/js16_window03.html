@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var ids=["kh","java","script","lcj"];
+	
+	function confirmChk(){
+		var id = document.getElementsByName("id")[0].value;
+		var div = document.getElementsByTagName("div")[0];
+		
+		if(ids.indexOf(id) != -1){
+			div.innerHTML = "<b>아이디가 존재합니다.</b>";
+		} else {
+			
+			var userID = "사용 가능한 아이디입니다."
+					+ "<input type='button' value='확인' onclick='insertID(\""+id+"\");'>";
+			div.innerHTML = userID;
+		}
+		
+	}
+	function insertID(id){
+		opener.document.getElementsByName("id")[0].value=id;
+		opener.document.getElementsByName("pwd")[0].focus();
+		ids.push(id);
+		close();
+	}
+</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>아이디</td>
+			<td><input type="text" name="id"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="button" value="중복확인" onclick="confirmChk();">
+				<input type="button" value="취소" onclick="self.close();">
+			</td>
+		</tr>
+	</table>
+	<div></div>
+</body>
+</html>
