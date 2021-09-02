@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select</title>
+<script type="text/javascript">
+    function show01(){
+        var food = document.getElementsByName("food")[0];
+
+        var idx = food.selectedIndex;
+        console.log(idx);
+
+        var foodVal = food.options[idx].value;
+
+        alert(foodVal+" 주문하였습니다.");
+    }
+    function show02(){
+        var food = document.getElementsByName("food")[1];
+        var str="";
+
+        for(var i = 0 ; i < food.options.length;i++){
+            if(food.options[i].selected){
+                str += food.options[i].value+" ";
+            }
+        }
+        alert(str+" 주문하였습니다.");
+    }
+</script>
+
+</head>
+<body>
+    <h1>음식 선택하기</h1>
+    <form>
+        <select name="food" onchange="show01();"> <!-- onclick : 클릭했을때 / onchange : 바뀌었을때-->
+            <option>---선택---</option>
+            <option value="갈비">갈비</option>
+            <option value="카레">카레</option>
+            <option value="마라탕">마라탕</option>
+            <option value="파스타">파스타</option>
+            <option value="피자">피자</option>
+        </select>
+        <br><br><hr><br><br>
+        <!-- select 태그 속성 정리-->
+        <select name="food" size="5" multiple="multiple">
+            <option value="갈비">갈비</option>
+            <option value="카레">카레</option>
+            <option value="마라탕">마라탕</option>
+            <option value="파스타">파스타</option>
+            <option value="피자">피자</option>
+        </select>
+        <input type="button" value="선택" onclick="show02();">
+    </form>
+</body>
+</html>
