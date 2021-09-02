@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+<script type="text/javascript">
+    function searchPar(){
+        var child02 = document.getElementsByTagName("p")[1];
+
+        var parent01 = child02.parentNode;
+
+        alert(parent01.nodeName);
+        parent01.style.backgroundColor = "skyblue";
+    }
+    function searchChi(){
+        var parent01 = document.getElementsByTagName("div")[0];
+
+        var divChildren = parent01.childNodes;
+        var str="";
+        for(var i =0 ; i<divChildren.length;i++){
+            str += divChildren[i].nodeName;
+        }
+
+        //세번째 p태그의 배경색을 pink로
+        divChildren[5].style.backgroundColor="pink";
+    }
+    function test01(){
+        var test01 = document.getElementsByTagName("p")[3];
+        var parentdiv = test01.parentNode;
+        parentdiv.style.backgroundColor="pink";
+    }
+    function test02(){
+        var parentDiv = document.getElementsByTagName("div")[2];
+        var children = parentDiv.childNodes;
+        children[3].style.fontSize="20pt";
+    }
+</script>
+</head>
+<body>
+    <h1>부모탐색, 자식탐색</h1>
+
+    <div>
+        <p>child01</p>
+        <p>child02</p>
+        <p>child03</p>
+    </div>
+    <button onclick="searchPar();">부모탐색</button>
+    <button onclick="searchChi();">자식탐색</button>
+
+    <hr>
+
+    <h3 onclick="test01();">1. "test01태그를 포함한 div태그"에 배경색을 pink로 적용</h3>
+    <h3 onclick="test02();">2. "마지막 div태그에 포함된 test04 태그"의 폰트크기를 20pt 변경</h3>
+    <div>
+        <p>test01</p>
+        <p>test02</p>
+    </div>
+    <div>
+        <p>test03</p>
+        <p>test04</p>
+    </div>
+
+</body>
+</html>
