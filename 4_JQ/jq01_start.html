@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style type="text/css">
+    img{
+        width:200px;
+        height: 300px;
+    }
+</style>
+<!--
+jQuery 추가방법
+
+1. CDN ( Content delivery network)
+- 사용하는 사람이 서버에서 그때그때 다운받아 사용
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+2. 파일을 다운 받아놓고 사용
+
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    
+    /*
+        jQuery 기본 작성법 : css selector 표현식
+        ex)
+        $("selector").함수();
+        $("p").css("color","red");
+
+        페이지내의 코드를 모두 읽어 들인 후 실행하라( window.onload=function(){} )
+        jQuery(document).ready(function(){
+            코드;
+        });
+        $(document).ready(function(){
+            코드;
+        });
+        $(function(){
+            코드;
+        });
+    */
+    
+    function highlight(){
+        //id가 list01인 요소의 자식인 li를 찾아서
+        //li들 중 첫번째 요소에 배경색을 pink로 바꾸고 싶다.
+        
+        // [js]
+        // var li = document.getElementsByTagName("li")[0];
+        // li.style.backgroundColor = "pink";
+    
+        // [jq]
+        //$("#list01>li").eq(0).css("background-color","pink");
+
+        //-----------------
+        
+        //li 태그 전체의 배경색을 pink
+        
+        // [js]
+        // var li = document.getElementsByTagName("li");
+        // for(var i = 0 ; i < li.length;i++){
+        //     li[i].style.backgroundColor = "pink";
+        // }
+
+        // [jq]
+        $("#list01>li").css("background-color","pink");
+    }
+
+    $(function(){
+        $("img").click(function(){
+            alert("이미지를 클릭했습니다.");
+            $(this).hide();
+        });
+    });
+
+    function showImg(){
+        $("img").show();
+    }
+    function resizeImg(){
+
+        // 한번에 여러 속성을 변경하는 방식
+
+        //$("img").css("width","100px").css("height","150px");
+        $("img").css({"width" : "100px","height":"150px"});
+    }
+    function addImg(){
+        $("img").last().after("<img src='image/img01.png'>");
+    }
+    function toggleImg(){
+        $("img").toggle();
+    }
+</script>
+</head>
+<body>
+    <h1>jQuery 시작</h1>
+    <ul id = "list01">
+        <li>1. 셀렉터 표현식</li>
+        <li>2. DOM 탐색</li>
+        <li>3. 이벤트</li>
+        <li>4. 이펙트</li>
+        <li>5. Ajax</li>    
+    </ul>
+    <button onclick="highlight();">리스트 강조하기</button>
+
+    <hr>
+
+    <div>
+        <img alt="test" src="image/img02.png">
+    </div>
+    <br>
+    <button onclick="showImg();">이미지 보이기</button>
+    <button onclick="resizeImg();">이미지 축소</button>
+    <button onclick="addImg();">이미지 추가</button>
+    <button onclick="toggleImg();">이미지 숨기기/보이기</button>
+</body>
+</html>
