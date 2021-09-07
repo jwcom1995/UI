@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    function click01(){
+        var inputVal = $("input:text").val();
+        alert(inputVal);
+    }
+    function click02(){
+        var inputVal = $("input:radio").val();
+        alert(inputVal);
+    }
+    function click03(){
+        var inputVal = $("input:checkbox").val();
+        alert(inputVal);
+    }
+    $(function(){
+        var selEle = document.getElementsByTagName("select")[0];
+
+        selEle.onchange=function(){
+            alert(selEle.options[selEle.selectedIndex].value+"의 인덱스 : "+selEle.selectedIndex);
+        }
+    });
+</script>
+</head>
+<body>
+    <form>
+        <input type="text">
+        <input type="button" value="선택" onclick="click01();"><br>
+        <input type="radio" value="21/06/14~" onclick="click02();">21년 6월 14일<br>
+        <input type="checkbox" value="스마트 컨텐츠와 웹" onclick="click03();">스마트 컨텐츠<br>
+    </form>
+    <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+</body>
+</html>
