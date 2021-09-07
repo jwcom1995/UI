@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("div>p").eq(0).click(function(){
+            $("pre b").eq(0).toggle();
+        });
+
+        $("div>p").eq(1).click(function(){
+            $("pre b").slice(3).toggle(); //slice(start index, end index), slice(start index) 인자값을 하나만 줄경우 시작값부터 인덱스 종료까지 범위
+        });
+
+        $("div>p").eq(2).click(function(){
+            $("pre b").first().css("color","red");
+        });
+
+        $("div>p").eq(3).click(function(){
+            $("pre b").last().css("color","blue");
+        });
+    });
+</script>
+</head>
+<body>
+<pre>
+    <b>eq()함수 : 선택한 엘리먼트들 중에 인덱스로 탐색</b>
+    <b>slice()함수 : 선택한 엘리먼트들 중에 인덱스 길이로 탐색</b>
+    <b>first()함수 : 선택한 엘리먼트들 중에 첫 번째 요소로 탐색</b>
+    <b>last()함수 : 선택한 엘리먼트들 중에 마지막 요소로 탐색</b>
+</pre>
+<div>
+    <p>eq()</p>
+    <p>slice()</p>
+    <p>first()</p>
+    <p>last()</p>
+</div>
+</body>
+</html>
