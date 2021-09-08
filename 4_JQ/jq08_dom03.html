@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("div").children().click(function(){
+            if($(this).prop("tagName")=="SPAN"){
+                $(this).add("b").css("color","blue");
+            }
+
+            if($(this).is("p")){
+                $(this).css("background-color","skyblue");
+            }
+        });
+        $("b").click(function(){
+            $("p:eq(0)").add("span").css("color","red");
+        });
+    });
+</script>
+</head>
+<body>
+    <div>
+        <p>add()</p>
+        <span>add():
+        선택한 엘리먼트에 추가적으로 selector 표현식을 작성할 때 사용
+        </span>
+        <p>is()</p>
+        <b>선택한 엘리먼트들 중에 구하는 엘리먼트가 있나 확인</b>
+    </div>
+</body>
+</html>
