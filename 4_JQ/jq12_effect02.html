@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <title>Document</title>
+<style type="text/css">
+    a {
+       font-weight: bold;
+       text-decoration: none;
+    }
+    #box {
+        background-color: skyblue;
+        width: 100px;
+        height: 100px;
+        position: relative;
+    }
+</style>
+<script type="text/javascript">
+    //animate() 메서드 체이닝 가능, 매개변수로 변하게 되는 속성들과 시간단위를 넘겨줌
+    $(function() {
+        $(".run").click(function() {
+            $("#box").animate({opacity:"0.1", left:"400px"},1000)
+                    .animate({opacity:"0.8",top:"160",width:"20px",height:"20px"},"slow")
+                    .animate({opacity:"1",left:"0",width:"100px",height:"100px"},500)
+                    .animate({top:"0px"},"fast")
+                    .slideUp().slideDown();
+                    //animate에 체이닝으로 다른 이펙트들도 적용시킬 수 있다.
+        });
+    });
+</script>
+</head>
+<body>
+    <p><a href="#" class="run">Run</a></p>   
+    <div id="box"></div>
+</body>
+</html>
