@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style type="text/css">
+    div{
+        width:400px;
+        height:200px;
+        border : 2px solid red;
+        padding : 20px;
+    }
+    div p:first-child{
+        float: left;
+        border : 1px solid blue;
+        width: 150px;
+        height:150px;
+        text-align:center;
+        line-height:150px;
+    }
+    div p:last-child{
+        float:right;
+        border: 1px solid green;
+        width: 150px;
+        height:150px;
+        text-align:center;
+        line-height: 150px;
+    }
+</style>
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        //event propagation : 각각의 요소들이 중첩되어 있어 하나의 이벤트 발생시 겹쳐진곳에서도 이벤트 발생 하는 경우
+        $("a:eq(0)").click(function(e){
+            alert("a클릭!");
+            //e.stopPropagation();  //event의 전파를 막음
+            //e.preventDefault();  //event를 취소
+            return false;
+        });
+        $("p").click(function(){
+            alert("p클릭!");
+        });
+        $("div").click(function(){
+            alert("div클릭!");
+        });
+
+        $("a:eq(1)").bind({ //bind() : 내부적 이벤트와 실행할 함수 연결
+            "mouseover":function(){
+                $(this).css("background-color","pink");
+            },
+            "mouseout":function(){
+                $(this).css("background-color","skyblue");
+            }        
+        }); 
+
+        $("span").click(function(){
+            alert("span클릭!");
+            $("a:eq(1)").unbind();  //bind 해제
+        });
+
+        $("button").click(function(){
+            $("body").append("<p>새로 추가된 p태그</p>");
+        });
+
+        $("body").on("click",">p",function(){
+            alert("p tag click!!");
+        })
+    });
+</script>
+</head>
+<body>
+    <span>unbind()</span>
+    <div>
+        <p>
+            <a href="http://www.naver.com">클릭</a>
+        </p>
+        <p>
+            클릭
+        </p>
+    </div>
+    <div>
+        <p>
+            <a href="http://www.google.com">클릭</a>
+        </p>
+        <p>
+            클릭
+        </p>
+    </div>
+    <button>요소추가</button>
+
+</body>
+</html>
