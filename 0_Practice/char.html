@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style type="text/css">
+    .wrap{
+        position: relative;
+        padding :5%;
+    }
+    .container{
+        display:flex;  /* flex관련 여기글 참고 https://studiomeal.com/archives/197  */
+        gap:15px;
+        margin-bottom: 20px;
+    }
+    .container2{
+        display:flex;  /* flex관련 여기글 참고 https://studiomeal.com/archives/197  */
+        gap:10px;
+        margin-bottom: 20px;
+    }
+    .chart{  /* 큰 원 */
+        position: relative;
+        width:180px;
+        height:180px;
+        border-radius:50%;
+        transition:0.3s;
+    }
+    span.center{ /*작은 원*/
+        background: #fff;
+        display : block;
+        position : absolute;
+        top:50%;
+        left:50%;
+        width:80px;
+        height:80px;
+        border-radius:50%;
+        text-align:center;
+        line-height:80px;
+        font-size:20px;
+        transform: translate(-50%,-50%); /*가운데위치*/ 
+    }
+    button{ /*리플레이 버튼*/
+        width:80px;
+        position:absolute;
+        left:0;
+        right:0;
+        margin:0 auto ;
+    }    
+</style>
+<script type="text/javascript">
+    window.onload=function(){
+        const chart1 = document.querySelector('#doughnut1');
+        const chart2 = document.querySelector('#doughnut2');
+        const chart3 = document.querySelector('#doughnut3');  
+        
+
+        makeChart(80, chart1, '#f5b914');
+        makeChart(50, chart2, '#0A174E');
+        makeChart(30, chart3, '#66d2ce');
+
+    }
+    function makeChart(percent,classname, color){
+            let i = 1;
+            let chartFn = setInterval(function(){
+                if(i<percent){
+                    colorFn(i,classname,color);
+                    i++;
+                }else{
+                clearInterval(chartFn);
+                }
+            },10);
+        }
+
+    function colorFn(i,classname,color){
+        classname.style.background = "conic-gradient("+color+" 0% "+i+"%, #dedede "+i+"% 100%)";
+    }                                   // color 가 0 ~ i % 까지 칠해지고 하얀부분이 i ~ 100 % 까지 칠해집니다.
+       
+    function replay(){
+        makeChart(80,chart1,'#f5b914');
+        makeChart(50,chart2,'#0A174E');
+        makeChart(30,chart3,'#66d2ce');
+        console.log(chart1);
+    }
+
+    function chart(){
+        const chart1 = document.querySelector('#doughnut1');
+        const chart2 = document.querySelector('#doughnut2');
+        const chart3 = document.querySelector('#doughnut3');
+
+        var ele = document.querySelectorAll(".val");
+        document.querySelectorAll(".center")[0].textContent=ele[0].value+"%";
+        document.querySelectorAll(".center")[1].textContent=ele[1].value+"%";
+        document.querySelectorAll(".center")[2].textContent=ele[2].value+"%";
+        makeChart(parseInt(ele[0].value), chart1, '#f5b914');
+        makeChart(parseInt(ele[1].value), chart2, '#0A174E');
+        makeChart(parseInt(ele[2].value), chart3, '#66d2ce');
+        
+
+    }
+</script>
+</head>
+<body>
+    <div class='wrap'>
+        <h2>도넛 차트 만들기</h2>
+        <div class="container">
+            <div class="chart" id="doughnut1"><span class="center">80%</span></div>
+            <div class="chart" id="doughnut2"><span class="center">50%</span></div>
+            <div class="chart" id="doughnut3"><span class="center">30%</span></div>
+        </div>
+        <div class="container2">
+            <input type="text" class="val"><br>      
+            <input type="text" class="val"><br>        
+            <input type="text" class="val"><br>
+        </div>
+        <button id="button1" onclick="chart();">버튼</button>
+    </div>
+</body>
+</html>
