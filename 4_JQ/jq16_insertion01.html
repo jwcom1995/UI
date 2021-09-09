@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style type="text/css">
+    div{border:1px solid red;}
+    .prepend{border:1px dotted blue;}
+    .append{border:1px dotted green;}
+</style>
+
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("button:eq(0)").click(function(){
+            //$("div").prepend("123");
+            $("div").prepend($("<p>").addClass("prepend").text("prepend"));
+        });
+
+        $("button:eq(1)").click(function(){
+            $("div").append($("<p>").addClass("append").text("append"));  //append()는 태그 뒤에 , prepend()는 태그 앞에
+        });
+
+        $("button:eq(2)").click(function(){
+            $("div").html("<b style='font-size:30px;'>html 요소를 바꾼다</b>");
+         });
+
+        $("button:eq(3)").click(function(){
+            $("div").text("<b>text 요소를 바꾼다.</b>");  //html()은 html요소로 변경,관여 / text() 은 텍스트 값으로 변경,관여 html 적용 x
+        });
+    });
+</script>
+</head>
+<body>
+    <button>prepend()</button>
+    <button>append()</button>
+    <button>html()</button>   
+    <button>text()</button>
+    <div>
+        <p>내부 삽입01</p>
+        <p>내부 삽입02</p>
+    </div>
+</body>
+</html>
