@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EMP Information</title>
+<style type="text/css">
+*{margin:0px; padding:0px;}
+table{width:900px;}
+table tr:nth-child(1){background:orange;}
+fieldset{width:400px;}
+body{width:1000px; margin:50px auto;}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="js/create_table.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#emp_search").click(function(){
+		$.ajax({
+			url: "emplist.xml",
+			method:"get",
+			data:"",
+			dataType:"xml",
+			success:function(data){
+				var empRowList = $(data).find("ROW");
+				$("body").append(makeTable(empRowList));
+			},
+			error:function(){
+				alert("통신실패");
+			}
+		});
+	});
+});
+</script>
+</head>
+<body>
+	<h1>데이터 가져오기</h1>
+	<fieldset>
+		<legend>사원 전체 조회</legend>
+		<input type="button" value="조회" id="emp_search">
+	</fieldset>
+</body>
+</html>
