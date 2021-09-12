@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style type="text/css">
+    div{
+        border:2px solid red;
+        width: 200px;
+        padding:10px;
+    }
+    p{background-color: yellow;}
+    h1{border: 1px solid blue;}
+</style>
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("p:eq(0)").click(function(){
+            $(this).remove();  // remove() 태그 자체를 없애버림
+        });
+        $("p:eq(1)").click(function(){
+            $(this).empty();  //empty() 태그 존재 ,내용 제거
+        });
+        $("p:eq(2)").click(function(){
+           var ele = $(this).detach(); //detach() 태그 잘라내기
+
+           $("h1").append(ele); 
+        });
+    });
+</script>
+</head>
+<body>
+    <h1>엘리먼트 제거하기</h1>
+    
+    <div>
+        <p>remove()</p>
+        <p>empty()</p>
+        <p>detach()</p>
+    </div>
+</body>
+</html>
