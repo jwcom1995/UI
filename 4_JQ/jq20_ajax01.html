@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EMP Search</title>
+<style type="text/css">
+	*{margin:0px; padding:0px;}
+	table{width:400px;}
+	table tr:nth-child(odd){background:orange;}
+	fieldset{width:400px;}
+	body{width:1000px; margin:50px auto;}
+</style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#emp_search").click(function(){
+		var empid = $("input[name=empid]").val();
+		
+		if(!isNaN(empid)&&empid.length>2){
+			//alert(empid);
+			$.ajax({
+				url:"emplist.xml",	// 전송(통신)할 주소
+				method:"get",	 	//서버에 전송하는 방식
+				//data:{id:empid}	//서버에 전송할 데이터
+				dataType:"xml",		//전송받을 데이터 타입
+				success:function(data){  //통신에 성공했을 때 실행
+					var empInfo = $(data).find("EMPLOYEE_ID:contains("+empid+")").parent();
+				
+					if((empInfo).is("ROW")){
+						$("table input").each(function(i){
+							$(this).val($(empInfo).children().eq(i).text());
+						});
+					}else{
+						alert("검색대상이 존재하지 않습니다!!");
+					}
+				},
+				error:function(){ 		//통신에 실패했을 때 실행
+					alert("통신 실패!");
+				}
+			});
+		}else{
+			alert("사원번호를 제대로 입력해 주세요.");
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<!-- AJax = Asynchronous JavaScript and XML (비동기 통신)
+
+	웹페이지 전체와 동기화 되어 새로고침하지않고 페이지 일부분만 데이터를 받아 새로고침 가능한 기능
+	ex) 로그인할경우 로그인 창부분만 바뀜 -->
+	<h1>데이터 가져오기</h1>
+	<fieldset>
+		<legend>사원정보 조회</legend>
+		<input type="text" name="empid">
+		<input type="button" id="emp_search" value="조회">
+	</fieldset>
+	
+	<table>
+		<tr>
+			<th>사원번호</th>
+			<td><input type="text" name="empNum"></td>
+		</tr>
+		<tr>
+			<th>이 름</th>
+			<td><input type="text" name="LastName"></td>
+		</tr>
+		<tr>
+			<th>이메일</th>
+			<td><input type="text" name="email"></td>
+		</tr>
+		<tr>
+			<th>전화번호</th>
+			<td><input type="text" name="phone"></td>
+		</tr>
+		<tr>
+			<th>입사일</th>
+			<td><input type="text" name="hire"></td>
+		</tr>
+	</table>
+</body>
+</html>
