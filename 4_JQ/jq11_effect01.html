@@ -37,7 +37,7 @@
             ele.siblings("p").css("background","white"); // 형제 요소들
         
             if(ele.is("p:contains(hide())")){ //hide()라는 텍스트를 포함하는지 확인
-                $("img").hide();
+                $("img").hide(500);
             }
             if(ele.is("p:contains(show())")){
                 $("img").show();
