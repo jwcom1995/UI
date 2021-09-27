@@ -22,7 +22,16 @@
 
 <div>
 	<span><%= dto.getMyname() %>님 환영합니다. (등급 : <%= dto.getMyrole() %>)</span>
-	<a href="test.jsp">로그아웃</a>
+	<a href="logincontroller.jsp?command=logout">로그아웃</a>
+</div>
+
+<div>
+	<div>
+		<a href = "logincontroller.jsp?command=userlistall">회원정보 조회(all)</a>
+	</div>
+	<div>
+		<a href="logincontroller.jsp?command=userlistenabled">회원정보 조회(enabled='Y')</a>
+	</div>
 </div>
 </body>
 </html>

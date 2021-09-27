@@ -48,6 +48,49 @@
 		</script>
 <%			
 		}
+	} else if(command.equals("userlistall")){
+
+		List<MyMemberDto> list = dao.selectAll();
+		
+		request.setAttribute("list", list);
+		pageContext.forward("userlistall.jsp");
+	} else if(command.equals("userlistenabled")){
+	
+		List<MyMemberDto> list = dao.selectEnabled();
+		
+		request.setAttribute("list",list);
+		pageContext.forward("userlistenabled.jsp");
+	} else if (command.equals("updateroleform")){
+		int myno = Integer.parseInt(request.getParameter("myno"));
+		MyMemberDto dto = dao.selectUser(myno);
+		
+		request.setAttribute("selectone", dto);
+		pageContext.forward("updateroleform.jsp");
+	} else if (command.equals("updaterole")){
+		int myno= Integer.parseInt(request.getParameter("myno"));
+		String myrole = request.getParameter("myrole");
+		
+		int res= dao.updateRole(myno,myrole);
+		
+		if(res>0){
+%>
+	<script type="text/javascript">
+		alert("회원 등급 조정 성공");
+		location.href="logincontroller.jsp?command=userlistenabled";
+	</script>
+<%
+		} else{
+%>
+	<script type="text/javascript">
+		alert("회원 등급 조정 실패");
+		location.href="logincontroller.jsp?command=updateroleform&myno=<%= myno%>";
+	</script>
+<%			
+		}
+	} else if(command.equals("logout")){
+		//session 정보 삭제
+		session.invalidate();
+		response.sendRedirect("index.jsp");
 	}
 %>
 </body>
