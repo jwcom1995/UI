@@ -225,5 +225,72 @@ public class MyMemberDao extends JDBCTemplate {
 		return res;
 	}
 
-	
+	// 아이디 중복체크
+	public String idChk(String id) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		String res = null;
+		
+		String sql = "SELECT * FROM MYMEMBER WHERE MYID=?";
+		
+		try {
+			pstm=con.prepareStatement(sql);
+			pstm.setString(1,id);
+			System.out.println("03. query 준비 : "+sql);
+			
+			rs= pstm.executeQuery();
+			System.out.println("04. query 실행");
+			while(rs.next()) {
+				res= rs.getString(2);
+			}
+		} catch (SQLException e) {
+			System.out.println("error : query 준비/실행 실패");
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료 \n");
+		}
+		
+		return res;
+	}
+
+	// 회원 추가
+	public int insertUser(MyMemberDto dto) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res = 0 ;
+		
+		String sql = "INSERT INTO MYMEMBER VALUES(MYNOSEQ.NEXTVAL,?,?,?,?,?,?,'Y','USER')";
+		
+		try {
+			pstm=con.prepareStatement(sql);
+			pstm.setString(1, dto.getMyid());
+			pstm.setString(2, dto.getMypw());
+			pstm.setString(3, dto.getMyname());
+			pstm.setString(4, dto.getMyaddr());
+			pstm.setString(5, dto.getMyphone());
+			pstm.setString(6, dto.getMyemail());
+			System.out.println("03. query 준비 : "+sql);
+			
+			res=pstm.executeUpdate();
+			if(res>0) {
+				commit(con);
+			}else {
+				rollback(con);
+			}
+			System.out.println("04. query 실행");
+		} catch (SQLException e) {
+			System.out.println("error : query 준비/실행 실패");
+			e.printStackTrace();
+		} finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료 \n");
+		}		
+		
+		return res;
+	}
 }
