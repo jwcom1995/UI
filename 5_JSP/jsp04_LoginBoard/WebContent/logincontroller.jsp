@@ -147,6 +147,62 @@
 		MyMemberDto dto = dao.selectUser(myno);
 		request.setAttribute("dto", dto);
 		pageContext.forward("userinfo.jsp");
+		
+	} else if (command.equals("updateform")){
+		int myno = Integer.parseInt(request.getParameter("myno"));
+		MyMemberDto dto = dao.selectUser(myno);
+		
+		request.setAttribute("dto",dto);
+		pageContext.forward("updateuser.jsp");
+		
+	} else if (command.equals("updateuser")){
+		
+		String myaddr= request.getParameter("myaddr");
+		String myemail= request.getParameter("myemail");
+		String myphone= request.getParameter("myphone");
+		int myno = Integer.parseInt(request.getParameter("myno"));
+		
+		MyMemberDto dto = new MyMemberDto();
+		dto.setMyaddr(myaddr);
+		dto.setMyemail(myemail);
+		dto.setMyphone(myphone);
+		dto.setMyno(myno);
+		
+		boolean res = dao.updateUser(dto);
+		
+		if(res){
+%>
+	<script type="text/javascript">
+		alert("수정 성공");
+		location.href="logincontroller.jsp?command=userinfo&myno=<%= myno%>";
+	</script>
+<%
+		}else{
+%>
+	<script type="text/javascript">
+		alert("수정 실패");
+		location.href="logincontroller.jsp?command=userinfo&myno=<%= myno%>";
+	</script>
+<%			
+		}
+	} else if (command.equals("deleteform")){
+		int myno = Integer.parseInt(request.getParameter("myno"));
+		
+		boolean res= dao.deleteUser(myno);
+		if(res){
+%>
+	<script type="text/javascript">
+		alert("탈퇴 성공");
+		location.href="logincontroller.jsp?command=logout";
+	</script>
+<%
+		}else{
+%>
+	<script type="text/javascript">
+		alert("탈퇴 실패");
+		location.href="logincontroller.jsp?command=userinfo&myno=<%= myno%>";
+	</script>
+<%		}
 	}
 %>
 </body>
