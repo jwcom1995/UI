@@ -12,6 +12,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function updateuser(myno){
+		location.href="logincontroller.jsp?command=updateform&myno="+myno;
+	}
+	function deleteuser(myno){
+		location.href="logincontroller.jsp?command=deleteform&myno="+myno;
+	}
+</script>
 </head>
 <%
 	MyMemberDto dto =(MyMemberDto)request.getAttribute("dto");
@@ -49,8 +57,8 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="right">
-				<input type="button" value="수정" onclick="">
-				<input type="button" value="탈퇴" onclick="">
+				<input type="button" value="수정" onclick="updateuser(<%= dto.getMyno() %>);">
+				<input type="button" value="탈퇴" onclick="deleteuser(<%= dto.getMyno() %>);">
 				<input type="button" value="메인" onclick="location.href='usermain.jsp'">
 			</td>
 		</tr>
