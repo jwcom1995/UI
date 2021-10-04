@@ -1,6 +1,8 @@
 package com.el.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,6 +32,18 @@ public class MyController extends HttpServlet {
 			
 			RequestDispatcher dispatch = request.getRequestDispatcher("eltest.jsp");
 			dispatch.include(request, response);
+		} else if(command.equals("jstlpage")) {
+			List<Score> res = new ArrayList<Score>();
+			
+			for(int i = 1 ; i <6 ; i++) {
+				Score sc = new Score("이름"+i,70+i,80+i,90+i);
+				res.add(sc);
+			}
+			
+			request.setAttribute("list", res);
+			RequestDispatcher dis = request.getRequestDispatcher("jstlpage.jsp");
+			dis.forward(request, response);
+			
 		}
 	}
 
