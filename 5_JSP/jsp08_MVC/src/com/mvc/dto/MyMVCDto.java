@@ -24,6 +24,19 @@ public class MyMVCDto {
 		this.regdate = regdate;
 	}
 	
+	public MyMVCDto(String writer,String title,String content) {
+		super();
+		this.writer=writer;
+		this.title=title;
+		this.content=content;
+	}
+	
+	public MyMVCDto(int seq, String title, String content) {
+		super();
+		this.seq = seq;
+		this.title = title;
+		this.content = content;
+	}
 	//getter&setter
 	public int getSeq() {
 		return seq;
