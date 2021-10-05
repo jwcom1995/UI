@@ -4,17 +4,12 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 <% response.setContentType("text/html; charset=UTF-8"); %>
 
-<%@page import = "com.mvc.dto.MyMVCDto" %>
-<%@page import = "java.util.List" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%
-	List<MyMVCDto> list = (List<MyMVCDto>)request.getAttribute("list");
-%>
 </head>
 <body>
 	<h1>글 목록</h1>
@@ -26,29 +21,27 @@
 			<th>TITLE</th>
 			<th>DATE</th>
 		</tr>
-<%
-	if(list.size()==0){
-%>
-	<tr>
-		<td colspan="4" align="center">-----글이 존재하지 않습니다-----</td>
-	</tr>
-<%		
-	} else{
-		for(MyMVCDto dto : list){
-%>
-		<tr>
-			<td><%= dto.getSeq() %></td>
-			<td><%= dto.getWriter() %></td>
-			<td><a href="controller.do?command=detail&seq=<%= dto.getSeq() %>"><%= dto.getTitle() %></a></td>
-			<td><%= dto.getRegdate() %></td>
-		</tr>
-<%			
-		}
-	}
-%>
+	<c:choose>
+		<c:when test="${empty list}">
+			<tr>
+				<td colspan="4" align="center">-----글이 존재하지 않습니다-----</td>
+			</tr>
+		</c:when>
+
+		<c:otherwise>
+			<c:forEach var="product" items="${list}">
+				<tr>
+					<td>${product.seq}</td>
+					<td>${product.writer}</td>
+					<td><a href="controller.do?command=detail&seq=${product.seq}">${product.title}</a></td>
+					<td>${product.regdate}</td>
+				</tr>
+			</c:forEach>
+		</c:otherwise>
+	</c:choose>
 		<tr>
 			<td colspan="4" align="right">
-				<input type="button" value="글쓰기" onclick="">
+				<input type="button" value="글쓰기" onclick="location.href='controller.do?command=writeform'">
 			</td>
 		</tr>
 	</table>
