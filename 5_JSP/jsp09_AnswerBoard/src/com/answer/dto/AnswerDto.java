@@ -30,6 +30,13 @@ public class AnswerDto {
 		this.regdate = regdate;
 	}
 
+	public AnswerDto(String writer,String title, String content) {
+		super();
+		this.title = title;
+		this.content = content;
+		this.writer = writer;
+	}
+
 	public int getBoardno() {
 		return boardno;
 	}
