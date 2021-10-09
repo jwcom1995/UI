@@ -37,10 +37,10 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="right">
-				<input type="button" value="삭제" onclick="">
-				<input type="button" value="수정" onclick="">
-				<input type="button" value="목록" onclick="">
-				<input type="button" value="답글" onclick="">
+				<input type="button" value="삭제" onclick="location.href='answer.do?command=delete&boardno=${dto.boardno}'">
+				<input type="button" value="수정" onclick="location.href='answer.do?command=updateform&boardno=${dto.boardno}'">
+				<input type="button" value="목록" onclick="location.href='answer.do?command=list'">
+				<input type="button" value="답글" onclick="location.href='answer.do?command=answerform&parentboardno=${dto.boardno}'">
 			</td>
 		</tr>
 	</table>
