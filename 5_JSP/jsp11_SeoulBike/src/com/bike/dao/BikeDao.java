@@ -62,4 +62,34 @@ public class BikeDao extends JDBCTemplate{
 		}
 		return res;
 	}
+	
+	public int delete() {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		int res=0;
+		
+		String sql = "DELETE FROM BIKE_TB";
+		
+		try {
+			pstm=con.prepareStatement(sql);
+			System.out.println("03. query 준비 : "+sql);
+			
+			res=pstm.executeUpdate();
+			System.out.println("04. query 실행");
+			
+			if(res>0) {
+				commit(con);
+			} else {
+				rollback(con);
+			}
+		} catch (SQLException e) {
+			System.out.println("error: query 준비,실행 failed");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료 \n");
+		}
+		return res;
+	}
 }
